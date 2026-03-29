@@ -1,3 +1,17 @@
+/*
+Duy Nguyen
+n186@umbc.edu
+IS247
+3-29-26
+
+Information:
+-Reads musician pay data from txt file
+-validates each record
+-store data into ArrayList
+-catch corrupted data
+-prints out the valid records
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -12,7 +26,7 @@ public class DataCleanup {
         ArrayList<Pay> musicians = new ArrayList<Pay>();
         Scanner fileScanner = null;
 
-
+        //opening the file
         try {
             fileScanner = new Scanner(new File("E:\\downloads\\FileIOmusicianpay.txt"));
         } catch (FileNotFoundException e) {
@@ -20,7 +34,7 @@ public class DataCleanup {
             System.exit(1);
         }
 
-
+        //file loop
         while (fileScanner.hasNext()) {
             String name = "";
             double hourlyPay = 0.0;
@@ -48,17 +62,17 @@ public class DataCleanup {
         fileScanner.close();
 
 
-        System.out.println("\n===== Valid Musician Records =====");
+        System.out.println("\n-----Valid Musician Records-----");
         for (Pay p : musicians) {
-            System.out.println(p); // uses overloaded toString()
+            System.out.println(p);
         }
 
-
+        //Writing output file
         try {
             PrintWriter writer = new PrintWriter(new FileWriter("FileIOmusicianpay_corrected.txt"));
             for (Pay p : musicians) {
 
-                writer.println(p.getName() + " " + p.getHourlyPay() + " " + p.getInstrument());
+                writer.println(p.getName() + " " + String.format("%.2f", p.getHourlyPay()) + " " + p.getInstrument());
             }
             writer.close();
             System.out.println("\nCorrected data written to 'FileIOmusicianpay_corrected.txt'.");

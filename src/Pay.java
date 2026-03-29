@@ -37,6 +37,7 @@ public class Pay extends Person {
 
     @Override
     public String toString() {
-        return "Name: " + getName() + " | Hourly Pay: $" + hourlyPay + " | Instrument: " + instrument;
+        return "Name: " + getName() + " | Hourly Pay: $" +
+                String.format("%.2f", hourlyPay) + " | Instrument: " + instrument;
     }
 }
