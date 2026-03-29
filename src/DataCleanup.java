@@ -23,6 +23,7 @@ import java.io.IOException;
 public class DataCleanup {
     public static void main(String[] args) {
 
+        //store valid pay objects from the txt file
         ArrayList<Pay> musicians = new ArrayList<Pay>();
         Scanner fileScanner = null;
 
@@ -60,7 +61,6 @@ public class DataCleanup {
         }
 
         fileScanner.close();
-
 
         System.out.println("\n-----Valid Musician Records-----");
         for (Pay p : musicians) {
