@@ -1,27 +1,31 @@
-public class Pay extends Person {
-    private double hourlyPay;
-    private String instrument;
-
-    /*
+/*
     subclass of Person (pay record)
 
     adds hourly pay and instrument attributes
 
-     */
+ */
+
+
+public class Pay extends Person {
+    private double hourlyPay;
+    private String instrument;
+
+
+    //default constructor
     public Pay() {
         super();
         this.hourlyPay = 0.0;
         this.instrument = "";
     }
 
-    //default constructor
+    //Overloaded constructor
     public Pay(String name, double hourlyPay, String instrument) {
         super(name);
         this.hourlyPay = hourlyPay;
         this.instrument = instrument;
     }
 
-    //Overloaded constructor
+    //return hourly pay as double
     public double getHourlyPay() {
         return hourlyPay;
     }
